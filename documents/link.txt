@@ -1,0 +1,4 @@
+% phân biệt thang đo tuyến tính với thanh đo logarit
+https://towardsdev.com/logarithmic-scale-how-to-plot-and-actually-understand-it-c38f00212206
+%Nội suy cubic spline
+https://en.wikiversity.org/wiki/Cubic_Spline_Interpolation
