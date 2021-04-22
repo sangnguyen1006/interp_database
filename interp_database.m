@@ -1,6 +1,8 @@
 %noi suy cho mo phong MC
 lamda_interp=[400 1100];%khoang buoc song muon noi suy
-xq=lamda_interp(1):1:lamda_interp(length(lamda_interp));%các buoc song cho noi suy
+delta_lamda= 1; %do phan giai buoc song noi suy
+interp_type='spline';%loai noi suy
+xq=lamda_interp(1):delta_lamda:lamda_interp(length(lamda_interp));%các buoc song cho noi suy
 
 name=["epi","der","subf","musc","blo"; %ten file.txt
       "epi_interp.mat","der_interp.mat","subf_interp.mat","musc_interp.mat","blo_interp.mat"];
@@ -18,9 +20,9 @@ name=["epi","der","subf","musc","blo"; %ten file.txt
     mus=value(3,1:size(value,2));    
     g=value(4,1:size(value,2));   
     %noi suy mua, mus va g 
-    mua_interp=interp1(lamda, mua, xq,'spline');
-    mus_interp=interp1(lamda, mus, xq,'spline');
-    g_interp=interp1(lamda, g, xq,'spline');
+    mua_interp=interp1(lamda, mua, xq,interp_type);
+    mus_interp=interp1(lamda, mus, xq,interp_type);
+    g_interp=interp1(lamda, g, xq,interp_type);
     %luu vao file.mat
     if name(1,i)=='epi'   epi_interp=[xq',mua_interp',mus_interp',g_interp'];save(name(2,i),'epi_interp');  end
     if name(1,i)=='der'   der_interp=[xq',mua_interp',mus_interp',g_interp'];save(name(2,i),'der_interp');  end
